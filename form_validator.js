@@ -19,7 +19,8 @@ function showSuccess(input) {
 }
 
 function checkEmail(input) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)
+  +[a-zA-Z]{2,}))$/;
   if(re.test(input.value.trim())) {
     showSuccess(input);
   } else {
@@ -27,8 +28,6 @@ function checkEmail(input) {
   }
 
 } 
-
-
 
 function checkRequired(inputArr) {
   inputArr.forEach(function(input) {
@@ -50,21 +49,15 @@ function checkLength(input, min, max) {
   }
 };
 
-
 function chechPasswordMatch(input1, input2) {
   if(input1.value !== input2.value) {
     showError(input2, 'Password do not match');
   }
 }
 
-
-
-
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
-
-
 
 
 form.addEventListener('submit', function(e) {
@@ -76,7 +69,7 @@ form.addEventListener('submit', function(e) {
   chechPasswordMatch(password, password2);
 });
 
-/*
+/* Slower way with IF sttements
   if (username.value === '') {
     showError(username, 'Username is required!');
   } else {
